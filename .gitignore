@@ -2,8 +2,7 @@
 asep_env/
 models/
 logs/
-data/processed/train_tokens.pt
-data/processed/val_tokens.pt
+data/
 src/_pycache_/
 src/cuckoo_search.py
 # Virtual environment
