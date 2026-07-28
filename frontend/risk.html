@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhishDetect – Risk Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- Animated PHISHDETECT Cyber Logo (SVG + CSS) -->
+<style>
+@keyframes neonPulseLogo {
+  0%, 100% { filter: drop-shadow(0 0 6px #0affef) drop-shadow(0 0 14px #0affef); }
+  50% { filter: drop-shadow(0 0 14px #00f0ff) drop-shadow(0 0 28px #00f0ff); }
+}
+
+@keyframes glitchLogo {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, 2px); }
+  80% { transform: translate(1px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes dashGlow {
+  to { stroke-dashoffset: 0; }
+}
+
+.logo-container {
+  width: 380px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#phishLogo {
+  width: 100%;
+  animation: neonPulseLogo 3s infinite ease-in-out, glitchLogo 1.8s infinite;
+}
+
+#phishOutline {
+  stroke: #0affef;
+  stroke-width: 2.6;
+  fill: none;
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  animation: dashGlow 4s ease forwards;
+}
+
+#phishText {
+  fill: none;
+  stroke: #0affef;
+  stroke-width: 1.5;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: dashGlow 3.4s ease forwards 0.5s;
+  filter: drop-shadow(0 0 12px #0affef);
+}
+
+/* Magenta & cyan glitch layers */
+#phishText.glitch1 {
+  stroke: magenta;
+  opacity: 0.55;
+  transform: translate(2px, -2px);
+}
+
+#phishText.glitch2 {
+  stroke: cyan;
+  opacity: 0.55;
+  transform: translate(-2px, 2px);
+}
+</style>
+
+<div class="logo-container">
+  <svg id="phishLogo" viewBox="0 0 800 300">
+
+    <!-- Outer cyber outline -->
+    <rect id="phishOutline" x="20" y="20" width="760" height="260" rx="22" />
+
+    <!-- PHISHDETECT Text Main Layer -->
+    <text id="phishText" x="400" y="165" font-size="82" text-anchor="middle" font-family="Orbitron" letter-spacing="8">
+      PHISHDETECT
+    </text>
+
+    <!-- Glitch Layers -->
+    <text id="phishText" class="glitch1" x="400" y="165" font-size="82" text-anchor="middle" font-family="Orbitron" letter-spacing="8">
+      PHISHDETECT
+    </text>
+
+    <text id="phishText" class="glitch2" x="400" y="165" font-size="82" text-anchor="middle" font-family="Orbitron" letter-spacing="8">
+      PHISHDETECT
+    </text>
+
+  </svg>
+</div>
+
+<h1>Risk Analysis</h1>
+<button id="homeBtn" class="home-btn">🏠 Home</button>
+
+<div class="resultBox">
+    <h2 id="detectedType"></h2>
+    <p id="inputShown"></p>
+</div>
+
+<!-- ML result MUST be here (appears first) -->
+<div id="mlResult" class="resultBox">
+  <!-- ML rendering will fill this -->
+  <div id="mlLoading" style="display:none">Running ML model...</div>
+</div>
+
+<!-- Then the JS rule-based analysis (appears second) -->
+<div id="jsResult" class="resultBox"></div>
+<div class="footer-text">
+  Powered by DistilBERT · FastAPI · TorchScript
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.env
+asep_env/
+models/
+logs/
+data/processed/
+src/_pycache_/
