@@ -5,3 +5,18 @@ logs/
 data/processed/
 src/_pycache_/
 src/cuckoo_search.py
+# Virtual environment
+asep_env/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model files (optional)
+*.pt
+*.pth
